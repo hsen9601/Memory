@@ -1,42 +1,141 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* App.css */
+/*AI Generated Styling*/
+/* Reset some defaults */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #121212;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Scoreboard container */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Individual player boxes */
+.player-score {
+  flex: 1;
   text-align: center;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: default;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.player-score.active {
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  color: #000;
+  text-shadow: 0 0 5px #fff;
+  transform: scale(1.05);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Card grid container */
+.card-grid {
+  width: 90vw;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 4/3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Individual card wrapper */
 .card {
-  padding: 2em;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Card front - hidden state */
+.card-front {
+  background: #333;
+  cursor: pointer;
+}
+
+/* Card back - revealed state */
+.card-back {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  transform: rotateY(180deg);
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* Hover effect for cards */
+.card:hover .card-front {
+  background: #555;
+}
+
+/* Endgame overlay */
+.endgame {
+  width: 800px;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+  font-size: 2rem;
+}
+
+.endgame button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  background: #121212;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.endgame button:hover {
+  background: #fff;
+  color: #121212;
+  transform: scale(1.05);
+}
+
+/* Optional error counter */
+.errors {
+  color: #ff4d4f;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
 }
