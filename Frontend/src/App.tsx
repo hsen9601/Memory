@@ -28,7 +28,7 @@ function App() {
   ]);
 
   const DrawCard = (num: number) => {
-    let nameArr: string[] = [];
+    const nameArr: string[] = [];
     for (let i = 0; i < num; i++) {
       nameArr.push(fruits[i], fruits[i]);
     }
@@ -51,6 +51,7 @@ function App() {
 
   const markAsMatched = (cardOne: CardType, cardTwo: CardType) => {
     setMatchedArr((prev) => [...prev, cardOne, cardTwo]);
+
     setFlippedArr([]);
     clearCards();
   };
