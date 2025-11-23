@@ -1,6 +1,8 @@
 import React from "react";
 import type { CardType } from "../App";
 
+import { track } from "@plausible-analytics/tracker";
+
 type Props = CardType & {
   isFlipped: boolean;
   disabled: boolean;
@@ -23,6 +25,11 @@ const Card: React.FC<Props> = ({
         if (!disabled && !isFlipped) {
           matchCards(card, index, true);
           setFlippedArr((prev) => [...prev, { card, index, pressed: true }]);
+
+          track("Card Clicked", {
+            props: { card, index: String(index) },
+            interactive: true,
+          });
         }
       }}
     >
