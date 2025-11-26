@@ -2,7 +2,7 @@
 
 A classic Memory Matching Game built as a personal project to practice programming concepts such as event handling, state management, and UI design. The game challenges players to find matching pairs of cards by remembering their positions.
 ### Link:
-- https://memoryvercel-y1g4.vercel.app/
+- https://memory-self-nu.vercel.app
 
 # Features:
 
